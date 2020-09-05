@@ -47,7 +47,7 @@ Wait for Docker container healthy (note `$` before command):
 ./wait-for-cmd.sh $'[ "$(docker inspect my_container -f \'{{.State.Health.Status}}\')" == "healthy" ]'
 ```
 
-Wait for `localhost:port` from inside Docker container:
+Wait for `localhost:port` from inside Docker container (note `host.docker.internal` instead of `localhost`):
 ```bash
 docker run --rm vitalets/wait-for-cmd 'curl -f http://host.docker.internal:3000 > /dev/null 2>&1'
 ```
