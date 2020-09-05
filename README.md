@@ -1,6 +1,6 @@
 # wait-for-cmd
 A pure shell script waiting for provided command to exit with zero code.
-Inspired by [eficode/wait-for](https://github.com/eficode/wait-for) but allows to use custom any command instead of netcat.
+Inspired by [eficode/wait-for](https://github.com/eficode/wait-for) but allows to use any custom command instead of `netcat`.
 
 ## Installation
 There are two options:
