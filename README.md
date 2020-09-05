@@ -13,7 +13,7 @@ There are two options:
   
 - run as docker container:
    ```
-   docker run --rm vitalets/wait-for-cmd 'curl -f https://example.com'
+   docker run --rm vitalets/wait-for-cmd 'curl -f https://example.com > /dev/null 2>&1'
    ```
 
 ## Usage
@@ -22,7 +22,7 @@ There are two options:
 ```
 
 ## Examples
-Wait for HOST:PORT ready with `netcat`:
+Wait for `HOST:PORT` ready with `netcat`:
 ```bash
 ./wait-for-cmd.sh 'nc -z example.com 80 > /dev/null 2>&1'
 ```
@@ -45,6 +45,11 @@ Wait for Docker container running (note `$` before command):
 Wait for Docker container healthy (note `$` before command):
 ```bash
 ./wait-for-cmd.sh $'[ "$(docker inspect my_container -f \'{{.State.Health.Status}}\')" == "healthy" ]'
+```
+
+Wait for `localhost:port` from inside Docker container:
+```bash
+docker run --rm vitalets/wait-for-cmd 'curl -f http://host.docker.internal:3000 > /dev/null 2>&1'
 ```
 
 ## Related projects
